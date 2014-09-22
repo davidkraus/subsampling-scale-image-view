@@ -10,6 +10,7 @@ def versionMinor = 0
 def versionPatch = 1
 
 version = "${versionMajor}.${versionMinor}.${versionPatch}"
+group = "com.davemorrissey.labs.subscaleview"
 
 android {
     compileSdkVersion 19
