@@ -4,9 +4,26 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
+// Manifest version information!
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+
+version = "${versionMajor}.${versionMinor}.${versionPatch}"
+
 android {
     compileSdkVersion 19
     buildToolsVersion "19.1.0"
+    
+
+    defaultConfig {
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100
+        versionName = project.version
+    }
+
+    lintOptions {
+          abortOnError false
+    }
 
     sourceSets {
         main {
@@ -32,3 +49,5 @@ android {
         release.setRoot('build-types/release')
     }
 }
+
+apply from: 'https://bitbucket.org/api/1.0/repositories/dengler/mvn_repo/raw/master/publish.gradle'
