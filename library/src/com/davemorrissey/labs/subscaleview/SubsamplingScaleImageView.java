@@ -683,6 +683,10 @@ public class SubsamplingScaleImageView extends View {
                 for (Tile tile : tileMapEntry.getValue()) {
                     Rect vRect = convertRect(sourceToViewRect(tile.sRect));
                     if (!tile.loading && tile.bitmap != null) {
+                        int color = Color.argb(255, 255, 255, 255);
+                        Paint paint = new Paint();
+                        paint.setColor(color);
+                        canvas.drawRect(vRect, paint);
                         canvas.drawBitmap(tile.bitmap, null, vRect, bitmapPaint);
                         if (debug) {
                             canvas.drawRect(vRect, debugPaint);
@@ -724,6 +728,7 @@ public class SubsamplingScaleImageView extends View {
             bitmapPaint.setAntiAlias(true);
             bitmapPaint.setFilterBitmap(true);
             bitmapPaint.setDither(true);
+            bitmapPaint.setAlpha(255);
         }
         if (debugPaint == null && debug) {
             debugPaint = new Paint();
