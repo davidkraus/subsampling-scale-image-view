@@ -7,7 +7,7 @@ dependencies {
 // Manifest version information!
 def versionMajor = 0
 def versionMinor = 0
-def versionPatch = 1
+def versionPatch = 2
 
 version = "${versionMajor}.${versionMinor}.${versionPatch}"
 group = "com.davemorrissey.labs.subscaleview"
